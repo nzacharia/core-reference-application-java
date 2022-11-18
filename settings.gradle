@@ -1,0 +1,5 @@
+rootProject.name = 'core-reference-application-java'
+
+include 'functional'
+include 'nft'
+include 'service'
