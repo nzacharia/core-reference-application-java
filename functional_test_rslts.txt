@@ -1,0 +1,119 @@
+> Task :functional:test
+
+Tests > Calling a counter service with persistent storage > io.cecg.reference.Tests.Get counter endpoint with a name that doesn't exist with response returns OK PASSED
+
+Tests > Calling a counter service with persistent storage > io.cecg.reference.Tests.Get counter endpoint with a random UUID with response returns OK PASSED
+
+Tests > Calling a counter service with persistent storage > io.cecg.reference.Tests.Put counter endpoint with a random UUID with response returns OK PASSED
+
+Tests > Calling a downstream service with response delay set-up > io.cecg.reference.Tests.Downstream endpoint with response returns OK PASSED
+
+Tests > Calling a downstream service with response delay set-up > io.cecg.reference.Tests.Downstream endpoint with response delay times out PASSED
+
+Tests > Greeting > io.cecg.reference.Tests.hello world returns ok PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #1 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #2 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #3 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #4 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #5 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #6 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #7 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #8 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #9 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns ok #10 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #1 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #2 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #3 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #4 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #5 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #6 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #7 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #8 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #9 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #10 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #11 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #12 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #13 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #14 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #15 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #16 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #17 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #18 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #19 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #20 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #21 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #22 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #23 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #24 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #25 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #26 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #27 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #28 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #29 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #30 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #31 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #32 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #33 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #34 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #35 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #36 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #37 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #38 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #39 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Status returns server internal error #40 PASSED
+
+Tests > Calling a status endpoint > io.cecg.reference.Tests.Calling status with a non existing code PASSED
+
+Tests > Swagger exists > io.cecg.reference.Tests.Swagger endpoint returns ok PASSED
+
+BUILD SUCCESSFUL in 10s
