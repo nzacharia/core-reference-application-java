@@ -29,6 +29,14 @@ public class DatabaseController {
         return counter;
     }
 
+    @DeleteMapping("/counter/{name}")
+
+    public Counter deleteCounter(@PathVariable(value = "name") String name) throws ApiException {
+        Counter counter = findByName(name);
+        counter.setCounter(0L);
+        counterRepository.save(counter);
+        return counter;
+    }
     private Counter findByName(String name) {
         return Optional.ofNullable(counterRepository.findCounterByName(name)).orElse(Counter.builder().name(name).counter(0L).build());
     }

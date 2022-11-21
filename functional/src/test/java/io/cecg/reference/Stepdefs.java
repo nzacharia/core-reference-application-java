@@ -64,7 +64,11 @@ public class Stepdefs {
         System.out.printf("Hitting endpoint: %s%n", baseUri);
         response = request.when().put("/counter/" + unique_id);
     }
-
+    @When("I call the delete counter with the random UUID")
+    public void i_call_the_delete_counter_with_the_random_uuid() {
+        System.out.printf("Hitting endpoint: %s%n", baseUri);
+        response = request.when().delete("/counter/" + unique_id);
+    }
     @When("^I call the swagger endpoint$")
     public void i_call_the_swagger_endpoint() {
         System.out.printf("Hitting endpoint: %s%n", baseUri);
@@ -82,6 +86,7 @@ public class Stepdefs {
         System.out.printf("Hitting endpoint: %s%n", baseUri);
         response = request.when().get(String.format("/status/%d", status));
     }
+
 
     @Then("^an ok response is returned$")
     public void an_ok_response_is_returned() {

@@ -25,3 +25,9 @@ Feature: Calling a counter service with persistent storage
     Then the response body field 'counter' is equal to '1'
     When I call the get counter with the random UUID
     Then the response body field 'counter' is equal to '1'
+
+  Scenario: Delete counter endpoint with a random UUID with response returns OK
+    Given a rest service
+    And a random UUID
+    When I call the delete counter with the random UUID
+    Then the response body field 'counter' is equal to '0'
