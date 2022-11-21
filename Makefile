@@ -1,7 +1,7 @@
 projectDir := $(realpath $(dir $(firstword $(MAKEFILE_LIST))))
 os := $(shell uname)
 VERSION ?= $(shell git rev-parse --short HEAD)
-registry = chbatey/reference-service
+registry = nzacharia/reference-service
 
 # P2P tasks
 

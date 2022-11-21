@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: reference-service-showcase
+  name: postgres-config
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: database
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: password
+

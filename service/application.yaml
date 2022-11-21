@@ -17,7 +17,7 @@ server:
   drainingMs: 0
 
 downstream:
-  url: http://${DOWNSTREAM_HOST:localhost}
+  url: http://podinfo.reference-service-showcase.svc.cluster.local
   port: 9898
   readTimeoutMs: 5000
   conenctTimeoutMs: 1000
@@ -25,7 +25,7 @@ downstream:
 database:
   datasource:
     #    driverClassName: org.postgresql.ds.PGSimpleDataSource
-    jdbcUrl: &db_url jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/postgres?useServerPrepStmts=false&rewriteBatchedStatements=true
+    jdbcUrl: &db_url jdbc:postgresql://database.reference-service-showcase.svc.cluster.local:5432/postgres?useServerPrepStmts=false&rewriteBatchedStatements=true
     username: &db_user postgres
     password: &db_pass password
     maximumPoolSize: 10

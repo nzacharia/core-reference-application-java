@@ -20,3 +20,5 @@ test {
     }
     systemProperty 'serviceEndpoint', System.getenv("SERVICE_ENDPOINT") ? System.getenv("SERVICE_ENDPOINT")  : "http://localhost"
 }
+
+

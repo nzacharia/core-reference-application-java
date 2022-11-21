@@ -92,6 +92,23 @@ If using Docker Desktop then [login](https://www.docker.com/blog/using-docker-de
 
 Update the Makefile `registry` variable with your newly created registry.
 
+### Edit `service/application.yaml` with `database` and `podinfo` service endpoint
+
+```
+downstream:
+  url: http://podinfo.reference-service-showcase.svc.cluster.local
+  port: 9898
+  readTimeoutMs: 5000
+  conenctTimeoutMs: 1000
+
+database:
+  datasource:
+    #    driverClassName: org.postgresql.ds.PGSimpleDataSource
+    jdbcUrl: &db_url jdbc:postgresql://database.reference-service-showcase.svc.cluster.local:5432/postgres?useServerPrepStmts=false&rewriteBatchedStatements=true
+    username: &db_user postgres
+    password: &db_pass password
+    maximumPoolSize: 10
+```
 ### Pushing the image
 
 ```
@@ -99,10 +116,32 @@ make docker-build
 make docker-push
 ```
 
-### Deploying the service
+### Replace reference-deployment container image in `/service/k8s-manifests/deployment.yml`
+```
+    spec:
+      containers:
+        - name: reference-service
+          image: nzacharia/reference-service:latest
+```
+### Replace hostpath value in PV  in `/service/k8s-manifests/postgres-pvc-pov.yml` with your own path
+
+```    
+storage: 5Gi # Sets PV Volume
+accessModes:
+- ReadWriteMany
+hostPath:
+path: "/Users/n.zacharia/core-reference-application-java/db-data"
+```
+
+
+### Deploying the refernce-service , podinfo ,database , cfg ,pv ,pvc
 
 ```
 kubectl apply -f service/k8s-manifests/namespace.yml
+kubectl apply -f service/k8s-manifests/deployment.yml
+kubectl apply -f service/k8s-manifests/postgres-config.yml
+kubectl apply -f service/k8s-manifests/postgres-deployment.yml
+kubectl apply -f service/k8s-manifests/postgres-pvc-pv.yml
 kubectl apply -f service/k8s-manifests/deployment.yml
 ```
 
@@ -110,14 +149,16 @@ The service should be running:
 
 ```
 kubectl get pods -n reference-service-showcase
-NAME                                 READY   STATUS    RESTARTS   AGE
-reference-service-7cff68d485-q8mw5   1/1     Running   0          142m
+podinfo-585cf965bc-jlrfh             1/1     Running   0              34m
+postgres-6894f7f4fc-hrzvn            1/1     Running   1 (125m ago)   126m
+reference-service-74bb49b5f5-57vqw   1/1     Running   0              34m
 ```
 
 Deploy the ingress and service:
 
 ```
 kubectl apply -f service/k8s-manifests/expose.yml
+kubectl apply -f service/k8s-manifests/postgres-service.yml
 ```
 
 ```
@@ -125,11 +166,17 @@ kubectl get ingress -n reference-service-showcase
 NAME                CLASS   HOSTS   ADDRESS        PORTS   AGE
 reference-service   nginx   *       192.168.49.2   80      144m
 ```
-
+```
+kubectl get svc -n reference-service-showcase
+NAME                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+database            ClusterIP   10.107.92.181    <none>        5432/TCP   47h
+podinfo             ClusterIP   10.111.172.123   <none>        9898/TCP   42h
+reference-service   ClusterIP   10.99.125.12     <none>        80/TCP     2d20h
+```
 If on Linux you can now access the service on the IP address (which is the minikube IP).
 
 ```
-curl localhost/service/hello
+curl localhost:80/service/hello
 Hello World!%
 ```
 
@@ -140,14 +187,14 @@ If this doesn't work ensure you followed the instructions when enabling the mini
 This shows how you can run the same tests locally and on a deployed version.
 
 ```
-SERVICE_ENDPOINT="http://localhost:8080" ./gradlew functional:test
+SERVICE_ENDPOINT="http://localhost:80/service" ./gradlew functional:test
 ```
 
 ### Run the non-functional tests against deployed application
 
 ```
-SERVICE_ENDPOINT="http://localhost:8080" k6 run ./nft/ramp-up/test.js
+SERVICE_ENDPOINT="http://localhost:80/service" k6 run ./nft/ramp-up/test.js
 ```
 
 ### Swagger
-Swagger is embedded in the server and available at http://localhost:8080/swagger-ui/
+Swagger is embedded in the server and available at http://localhost:80/service/swagger-ui/
